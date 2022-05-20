@@ -27,4 +27,8 @@ class WifiStateLoaded extends WifiState {
 }
 
 class WifiStateProvisioning extends WifiState {}
-class WifiStateProvisioned extends WifiState {}
+class WifiStateProvisioned extends WifiState {
+  final String customDataAnswer;
+
+  WifiStateProvisioned({this.customDataAnswer});
+}

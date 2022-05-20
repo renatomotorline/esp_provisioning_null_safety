@@ -142,11 +142,40 @@ class _WiFiScreenState extends State<WiFiScreen> {
               );
             }
             if (state is WifiStateProvisioned) {
-              return Container(
-                child: Center(
-                  child: MaterialButton(child: Text('Done'), color: Colors.redAccent, onPressed: () {
-                    Navigator.of(context).pop();
-                  },),
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Custom data answer: ${state.customDataAnswer}",
+                      style: Theme.of(context).textTheme.bodyText1
+                    ),
+                    SizedBox(height: 8.0),
+                    MaterialButton(
+                      child: Text('Done'),
+                      color: Colors.redAccent,
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ],
+                ),
+              );
+            }
+            if (state is WifiStateError) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      state.errorMsg,
+                      style: Theme.of(context).textTheme.bodyText1
+                    ),
+                    SizedBox(height: 8.0,),
+                    MaterialButton(
+                      child: Text('Close'),
+                      color: Colors.redAccent,
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ],
                 ),
               );
             }

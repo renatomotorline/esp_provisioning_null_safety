@@ -44,23 +44,29 @@ class ScanList extends StatelessWidget {
             ? Container()
             : SizedBox(
                 child: Container(
-                    padding: EdgeInsets.all(4.0),
-                    height: 80,
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: SpinKitRipple(
-                            color: Theme.of(_context).textSelectionColor)))),
+                  padding: EdgeInsets.all(4.0),
+                  height: 80,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: SpinKitRipple(
+                      color: Theme.of(_context).textSelectionColor,
+                    ),
+                  ),
+                ),
+              ),
         Expanded(
-            child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: items.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildItem(context, items[index], icon, onTap: onTap);
-                },
-                separatorBuilder: (context, index) => Divider(
-                      color: Theme.of(context).dividerColor,
-                      height: 1.0,
-                    )))
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemCount: items.length,
+            itemBuilder: (BuildContext context, int index) {
+              return _buildItem(context, items[index], icon, onTap: onTap);
+            },
+            separatorBuilder: (context, index) => Divider(
+              color: Theme.of(context).dividerColor,
+              height: 1.0,
+            ),
+          ),
+        )
       ],
     );
   }
